@@ -1,0 +1,6 @@
+langchain-groq
+langchain
+chainlit
+pydantic
+openai
+google-generativeai
