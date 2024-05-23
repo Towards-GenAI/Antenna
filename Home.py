@@ -56,6 +56,11 @@ st.markdown('''
         </style>
             ''',
         unsafe_allow_html=True)
+st.markdown(
+    """
+    ### A Text & Image Chatbot by [Towards-GenAI](https://github.com/Towards-GenAI)
+    """
+)
 
 def main():
     
@@ -100,7 +105,6 @@ def main():
         st.divider()
 
         
-
        
         footer()
             
