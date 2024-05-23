@@ -16,9 +16,7 @@ logger = logging.getLogger(__name__)
 ##################################################################################################
 #Environmental variables
 load_dotenv()
-# genai.configure(api_key=GOOGLE_API_KEY)
-# os.getenv("GOOGLE_API_KEY")
-# genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+
 
 
 google_api_key = os.getenv("GOOGLE_API_KEY")
