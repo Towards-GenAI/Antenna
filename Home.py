@@ -7,7 +7,7 @@ import google.generativeai as genai
 from dotenv import load_dotenv
 import google.generativeai as genai
 import logging
-
+from PIL import Image
 ##################################################################################################
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -45,10 +45,29 @@ def model_load_test():
     else:
         print("Please enter a valid question.")
 
-#uncommnet to test   
+#un comment to test   
 #model_load_test()
 ##################################################################################################
 
+#Testing Gemini Pro vision Generation with logging info
+
+#setting model and parameters
+def vision_model_load_test():
+    img = Image.open('./tushar.png')
+    
+    
+
+
+    if img:
+        vision_model = genai.GenerativeModel('gemini-pro-vision')
+        response = vision_model.generate_content(img)
+        print(response.text)
+    else:
+        print("Please enter a valid question.")
+
+#un comment to test   
+#vision_model_load_test()
+##################################################################################################
 
 
 

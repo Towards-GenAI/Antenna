@@ -4,3 +4,4 @@ chainlit
 pydantic
 openai
 google-generativeai
+pillow
