@@ -73,20 +73,22 @@ def main():
 
     # Model selector
     with st.sidebar:
-        option = st.selectbox('Choose Your Model', ('gemini-pro', 'gemini-pro-vision'))
+        option = st.selectbox('Model', ('gemini-pro', 'gemini-pro-vision'))
 
         if 'model' not in st.session_state or st.session_state.model != option:
             st.session_state.chat = genai.GenerativeModel(option).start_chat(history=[])
             st.session_state.model = option
         
-        st.write("Adjust Your Parameters Here:")
+        st.write("Adjust Parameters Here:")
         temperature = st.number_input("Temperature", min_value=0.0, max_value=1.0, value=0.5, step=0.01)
         max_token = st.number_input("Maximum Output Token", min_value=0, value=251, max_value=1500)
         gen_config = genai.types.GenerationConfig(max_output_tokens=max_token, temperature=temperature)
 
         st.divider()
 
-        footer()
+        if st.button("Clear Chat History"):
+            st.session_state.messages.clear()
+            save_chat_history([])
         
         st.divider()
         
@@ -97,9 +99,10 @@ def main():
 
         st.divider()
 
-        if st.button("Clear Chat History"):
-            st.session_state.messages.clear()
-            save_chat_history([])
+        
+
+       
+        footer()
             
     # Load chat history
     if "messages" not in st.session_state:
