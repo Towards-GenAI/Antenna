@@ -31,7 +31,23 @@ else:
     logger.error("Failed to load Google API Key.")
 
 ##################################################################################################
+#Testing Gemini Pro Text Generation with logging info
 
+#setting model and parameters
+def model_load_test():
+    model = genai.GenerativeModel('gemini-pro')
+    question=input("Enter the question: ")
+
+
+    if question:
+        response = model.generate_content(question)
+        print(response.text)
+    else:
+        print("Please enter a valid question.")
+
+#uncommnet to test   
+#model_load_test()
+##################################################################################################
 
 
 
