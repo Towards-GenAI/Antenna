@@ -199,8 +199,8 @@ with st.sidebar:
     st.divider()
 
     st.markdown("<span ><font size=1>Connect With Me</font></span>",unsafe_allow_html=True)
-    "[Linkedin](https://www.linkedin.com/in/tusharaggarwalinseec/)"
-    "[GitHub](https://github.com/Towards-GenAI)"
+    "[Linkedin]"
+    "[GitHub]"
     
     st.divider()
     
@@ -216,8 +216,45 @@ with st.sidebar:
         
         
 #######################################################################################
+#Chatbot
 
-     
+if "messages" not in st.session_state:
+    st.session_state["messages"] = [{"role": "assistant", "content": "Hi there. Can I help you?"}]
+
+for msg in st.session_state.messages:
+    st.chat_message(msg["role"]).write(msg["content"])
+
+if upload_image:
+    if option == "gemini-pro":
+        st.info("Please Switch to the Gemini Pro Vision")
+        st.stop()
+    if prompt := st.chat_input():
+            st.session_state.messages.append({"role": "user", "content": prompt})
+            st.chat_message("user").write(prompt)
+            response=st.session_state.chat.send_message([prompt,image],stream=True,generation_config = gen_config)
+            response.resolve()
+            msg=response.text
+
+            st.session_state.chat = genai.GenerativeModel(option).start_chat(history=[])
+            st.session_state.messages.append({"role": "assistant", "content": msg})
+            
+            st.image(image,width=300)
+            st.chat_message("assistant").write(msg)
+
+else:
+    if prompt := st.chat_input():
+            
+            st.session_state.messages.append({"role": "user", "content": prompt})
+            st.chat_message("user").write(prompt)
+            
+            response=st.session_state.chat.send_message(prompt,stream=True,generation_config = gen_config)
+            response.resolve()
+            msg=response.text
+            st.session_state.messages.append({"role": "assistant", "content": msg})
+            st.chat_message("assistant").write(msg)    
+            
+            
+            
 
 
 
