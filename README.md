@@ -1,5 +1,5 @@
-# Anteena - Text & Vision Chat with Gemini Pro
-Anteena is a powerful, interactive dashboard that leverages Google's state-of-the-art multimodal large language model, Gemini Pro, to provide advanced AI capabilities. With Anteena, users can seamlessly interact with Gemini Pro through a user-friendly interface, enabling them to generate text, analyze images and videos, and perform complex reasoning tasks across multiple modalities.
+# Antenna - Text & Vision Chat with Gemini Pro
+Antenna is a powerful, interactive dashboard that leverages Google's state-of-the-art multimodal large language model, Gemini Pro, to provide advanced AI capabilities. With Antenna, users can seamlessly interact with Gemini Pro through a user-friendly interface, enabling them to generate text, analyze images and videos, and perform complex reasoning tasks across multiple modalities.
 
 ## Features
 - **Multimodal Interaction**: Engage with Gemini Pro using text, images, and videos, all within a single intuitive dashboard.
@@ -17,25 +17,25 @@ Anteena is a powerful, interactive dashboard that leverages Google's state-of-th
 - [Tushar's LinkedIn](https://www.linkedin.com/in/tusharaggarwalinseec/)
 
 ## Getting Started
-To start using Anteena, follow these steps:
-1. Clone the Anteena repository:
+To start using Antenna, follow these steps:
+1. Clone the Antenna repository:
  ```
  git clone https://github.com/Towards-GenAI/Antenna.git
  ```
 2. Install the required dependencies:
  ```
- cd anteena
+ cd Antenna
  pip install -r requirements.txt
  ```
 3. Set up your Google Cloud credentials and ensure you have access to the Gemini Pro API.
-4. Run the Anteena dashboard:
+4. Run the Antenna dashboard:
  ```
  python Home.py
  ```
-5. Open your web browser and navigate to `http://localhost:8501` to access the Anteena dashboard.
+5. Open your web browser and navigate to `http://localhost:8501` to access the Antenna dashboard.
 
 ## Usage
-Once you have the Anteena up and running, you can start interacting with Gemini Pro:
+Once you have the Antenna up and running, you can start interacting with Gemini Pro:
 1. Enter your text queries or upload images/videos in the designated input areas.
 2. Customize the prompts to guide Gemini Pro's output, if desired.
 3. Click the "Generate" button to send your input to Gemini Pro for processing.
@@ -49,12 +49,12 @@ We welcome contributions to enhance Anteena and expand its capabilities. To cont
 4. Submit a pull request describing your changes.
 Please refer to the [contribution guidelines](CONTRIBUTING.md) for more detailed information.
 ## License
-Anteena is released under the [MIT License](LICENSE).
+Antenna is released under the [MIT License](LICENSE).
 ## Acknowledgements
 We would like to express our gratitude to the Google DeepMind team for developing the groundbreaking Gemini Pro model and making it accessible to developers and researchers worldwide.
 ## Contact
 For any questions, suggestions, or feedback, please reach out to us at info@tushar-aggarwal.com or open an issue on the GitHub repository.
 
-Let Anteena empower your multimodal AI workflows with the cutting-edge capabilities of Gemini Pro!
+Let Antenna empower your multimodal AI workflows with the cutting-edge capabilities of Gemini Pro!
 
 
