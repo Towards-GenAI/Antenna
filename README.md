@@ -2,6 +2,7 @@
 Antenna is a powerful, interactive dashboard that leverages Google's state-of-the-art multimodal large language model, Gemini Pro, to provide advanced AI capabilities. With Antenna, users can seamlessly interact with Gemini Pro through a user-friendly interface, enabling them to generate text, analyze images and videos, and perform complex reasoning tasks across multiple modalities.
 
 ## Deployment  [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://antenna.streamlit.app/)
+![anteena gif](https://github.com/tushar2704/Antenna/assets/66141195/687fb78a-dbf7-4ca2-9f4c-d774f72bb73c)
 
 ## Features
 - **Multimodal Interaction**: Engage with Gemini Pro using text, images, and videos, all within a single intuitive dashboard.
