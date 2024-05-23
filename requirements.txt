@@ -3,3 +3,4 @@ langchain
 chainlit
 pydantic
 openai
+google-generativeai
