@@ -121,7 +121,7 @@ def main():
         if option == "gemini-pro":
             st.info("Please switch to the Gemini Pro Vision model to use image input.")
             st.stop()
-        prompt = st.chat_input()
+        prompt = st.chat_input(placeholder="I'm Antenna, what's on your mind?")
         if prompt:
             st.session_state.messages.append({"role": "user", "content": prompt})
             st.chat_message("user").write(prompt)
@@ -135,7 +135,7 @@ def main():
             st.image(image, width=300)
             st.chat_message("assistant").write(msg)
     else:
-        prompt = st.chat_input()
+        prompt = st.chat_input(placeholder="I'm Antenna, what's on your mind?")
         if prompt:
             st.session_state.messages.append({"role": "user", "content": prompt})
             st.chat_message("user").write(prompt)
