@@ -5,33 +5,30 @@
 import os
 import google.generativeai as genai
 from dotenv import load_dotenv
-import google.generativeai as genai
 import logging
 from PIL import Image
+import sys
+from pathlib import Path
+script_dir = Path(__file__).resolve().parent
+project_root = script_dir.parent
+sys.path.append(str(project_root))
+import warnings
+warnings.filterwarnings("ignore")
+import streamlit as st
+import json
+#From src
+from src.components.navigation import *
 ##################################################################################################
 # Configure logging
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
 ##################################################################################################
 #Environmental variables
 # load_dotenv()
 
-
-
 # google_api_key = os.getenv("GOOGLE_API_KEY")
-
 ##################################################################################################
-import streamlit as st
-from PIL import Image
-
-import logging
-import json
-import os
-
-# Configure logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-logger = logging.getLogger(__name__)
 
 # Load chat history from file if it exists
 def load_chat_history():
@@ -44,14 +41,26 @@ def load_chat_history():
 def save_chat_history(chat_history):
     with open("chat_history.json", "w") as f:
         json.dump(chat_history, f)
+##################################################################################################
+# Antenna Application flow
+page_config("Antenna", "♊", "wide")
+custom_style()
 
-# Streamlit app
+
+st.title("♊Antenna♊")
+st.markdown('''
+        <style>
+            div.block-container{padding-top:0px;}
+            font-family: 'Roboto', sans-serif; /* Add Roboto font */
+            color: blue; /* Make the text blue */
+        </style>
+            ''',
+        unsafe_allow_html=True)
+
 def main():
-    st.set_page_config(page_title="Antenna", page_icon="♊")
-    st.write("Welcome to the Gemini Pro Dashboard. You can proceed by providing your Google API Key")
-
+    
     st.sidebar.image('./src/logo.png')
-    with st.sidebar.expander("Provide Google API Key please"):
+    with st.sidebar.expander("Google API Key please"):
         google_api_key = st.text_input("Google API Key", key="google_api_key", type="password")
          
     if google_api_key:
@@ -77,9 +86,7 @@ def main():
 
         st.divider()
 
-        st.markdown("<span><font size=1>Connect With Me</font></span>", unsafe_allow_html=True)
-        st.markdown("[Linkedin]")
-        st.markdown("[GitHub]")
+        footer()
         
         st.divider()
         
@@ -132,8 +139,10 @@ def main():
             st.session_state.messages.append({"role": "assistant", "content": msg})
             st.chat_message("assistant").write(msg)
 
-    # Save chat history
+    # Saving chat history
     save_chat_history(st.session_state.messages)
+    
+
 
 if __name__ == "__main__":
     main()
