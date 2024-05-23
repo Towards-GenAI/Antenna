@@ -62,7 +62,7 @@ def model_load_test():
 
 def vision_model_load_test():
     try:
-        img = Image.open('./tushar.png')
+        img = Image.open('.src/tushar.png')
         logging.info("Image loaded successfully: %s", img.filename)
         
         if img:
@@ -124,7 +124,43 @@ def text_chain_test():
 # text_chain_test()
 ##################################################################################################
 
+#Testing Gemini Pro text with chain with logging info & Configuring the parameters
 
+def text_chain_test_with_config():
+    try:
+        chain_model = genai.GenerativeModel('gemini-pro')
+        chat = chain_model.start_chat(history=[])
+        logging.info("Generative model and chat initialized successfully")
+
+        question1 = input("Enter the question: ")
+        logging.info(f"User entered question: {question1}")
+        generation_config = genai.types.GenerationConfig(max_output_tokens=25, temperature=0.8)
+        response = chat.send_message(question1, stream=True, generation_config=generation_config)
+        response.resolve()
+        print(response.text)
+        logging.info(f"Response generated for question1: {response.text}")
+
+        # Question2
+        question2 = input("Enter the additional question here: ")
+        logging.info(f"User entered additional question: {question2}")
+        generation_config = genai.types.GenerationConfig(max_output_tokens=251, temperature=0.8)
+        response = chat.send_message(question2, stream=True, generation_config=generation_config)
+        response.resolve()
+        print(response.text)
+        logging.info(f"Response generated for question2: {response.text}")
+
+        # print(chat.history)
+        return True
+
+    except Exception as e:
+        logging.error(f"An error occurred: {str(e)}")
+        return False
+
+# Uncomment to test
+text_chain_test_with_config()
+##################################################################################################
+
+#Testing Gemini Pro text with chain with logging info & Configuring the parameters
 
 
 
