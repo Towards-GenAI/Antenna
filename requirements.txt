@@ -1,0 +1,5 @@
+langchain-groq
+langchain
+chainlit
+pydantic
+openai
